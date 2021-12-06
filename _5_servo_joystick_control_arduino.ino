@@ -26,7 +26,7 @@ const int BUTTON_PIN = 6; // Arduino pin connected to button's pin
 const int SERVO_PIN  = 12; //arduino pin connected to pin 12
 
 //push button int's
-int angle = 0;          // the current angle of servo motor
+int angle = 10;          // the current angle of servo motor
 int lastButtonState;    // the previous state of button
 int currentButtonState;
 
@@ -42,7 +42,7 @@ eyes2.attach(13);
   eyes.attach(SERVO_PIN);           // attaches the servo on pin 12 to the servo object
 
   eyes.write(angle); //writes initial servo angle for eyes servos
-  eyes2.write(90-angle);
+  eyes2.write(100-angle);
   currentButtonState = digitalRead(BUTTON_PIN);
 
 
@@ -74,15 +74,15 @@ delay(20);
     Serial.println("The button is pressed");
 
     // change angle of servo motor
-    if(angle == 0)
-      angle = 90;
+    if(angle == 10)
+      angle = 100;
     else
-    if(angle == 90)
-      angle = 0;
+    if(angle == 100)
+      angle = 10;
 
     // control servo motor arccoding to the angle
     eyes.write(angle);
-    eyes2.write(90-angle);
+    eyes2.write(100-angle);
   }
   
   
