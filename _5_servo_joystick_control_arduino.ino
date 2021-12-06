@@ -55,12 +55,12 @@ void loop()
 
 //Joystick loop  
 joyVal = analogRead(joyX); // read value from joystick
-joyVal = map(joyVal, 0, 1023, 0, 180); // change value range to 0-180
-brows.write(joyVal); // write value to servo
+//joyVal = map(joyVal, 0, 1023, 0, 180); // change value range to 0-180
+brows.write(map(joyVal, 0, 1023, 0, 180)); // write value to servo
 
 joyVal = analogRead(joyY); // repeat same for y axis
-joyVal = map(joyVal, 0, 1023, 0, 180);
-ears1.write(joyVal);
+//joyVal = map(joyVal, 0, 1023, 0, 180);
+ears1.write(map(joyVal, 0, 1023, 0, 180));
 delay(20); // add small delay to reduce noise
 
 ears2.write(180-joyVal); //writes mirrored servo position for second ear servo
